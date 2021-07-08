@@ -21,16 +21,16 @@ class ResellerServices
     /**
      * ResellerServices constructor.
      *
-     * @param $credentials Credentials | string
+     * @param $token Credentials | string
      * @param null $httpClient
      */
     public function __construct(
-        $credentials,
+        $token,
         $sandbox = false,
         $httpClient = null
     ) {
         $this->setHttpClient($httpClient);
-        $this->setCredentials($credentials, $sandbox);
+        $this->setCredentials($token, $sandbox);
     }
 
     /**
