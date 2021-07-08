@@ -7,7 +7,6 @@
 
 namespace ResellerServices\License;
 
-
 use GuzzleHttp\Exception\GuzzleException;
 use ResellerServices\ResellerServices;
 

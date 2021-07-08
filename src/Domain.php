@@ -7,7 +7,6 @@
 
 namespace ResellerServices;
 
-
 use GuzzleHttp\Exception\GuzzleException;
 
 class Domain
