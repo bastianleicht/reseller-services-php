@@ -12,16 +12,30 @@ use ResellerServices\Exception\ParameterException;
 class Credentials
 {
     private $token;
+    private $sandbox;
     private $url;
 
-    public function __construct($token)
+    public function __construct($token, $sandbox = false)
     {
         if (!is_string($token)) {
             throw new ParameterException('invalid argument');
         }
 
         $this->token = $token;
-        $this->url = 'https://interface.reseller-services.de/api/v1/';
+
+        switch ($sandbox) {
+            case false:
+                $this->sandbox = false;
+                $this->url = 'https://interface.reseller-services.de/api/v1/';
+                break;
+            case true:
+                $this->sandbox = true;
+                $this->url = 'https://interface.reseller-services.de/sandbox/api/v1/';
+                break;
+            default:
+                $this->sandbox = false;
+                $this->url = 'https://interface.reseller-services.de/api/v1/';
+        }
     }
 
     public function __toString()

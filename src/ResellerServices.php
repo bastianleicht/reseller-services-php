@@ -26,10 +26,11 @@ class ResellerServices
      */
     public function __construct(
         $credentials,
+        $sandbox = false,
         $httpClient = null
     ) {
         $this->setHttpClient($httpClient);
-        $this->setCredentials($credentials);
+        $this->setCredentials($credentials, $sandbox);
     }
 
     /**
@@ -45,10 +46,10 @@ class ResellerServices
         ]);
     }
 
-    public function setCredentials($credentials)
+    public function setCredentials($credentials, $sandbox)
     {
         if (!$credentials instanceof Credentials) {
-            $credentials = new Credentials($credentials);
+            $credentials = new Credentials($credentials, $sandbox);
         }
 
         $this->credentials = $credentials;
