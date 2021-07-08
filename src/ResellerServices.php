@@ -11,6 +11,7 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
 use Psr\Http\Message\ResponseInterface;
 use ResellerServices\Exception\ParameterException;
+use ResellerServices\License\Plesk;
 
 class ResellerServices
 {
@@ -193,4 +194,19 @@ class ResellerServices
 
         return $this->paymentHandler;
     }
+
+    private $pleskHandler;
+
+    /**
+     * @return Plesk
+     */
+    public function plesk(): Plesk
+    {
+        if(!$this->pleskHandler) {
+            $this->pleskHandler = new Plesk($this);
+        }
+
+        return $this->pleskHandler;
+    }
+
 }
