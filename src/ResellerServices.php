@@ -209,4 +209,17 @@ class ResellerServices
         return $this->pleskHandler;
     }
 
+    private $domainHandler;
+
+    /**
+     * @return Domain
+     */
+    public function domain(): Domain
+    {
+        if(!$this->domainHandler) {
+            $this->domainHandler = new Domain($this);
+        }
+
+        return $this->domainHandler;
+    }
 }
