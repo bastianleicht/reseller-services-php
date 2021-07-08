@@ -1,0 +1,28 @@
+{
+    "name": "bastianleicht/reseller-services-php",
+    "description": "A full-featured implementation of the ResellerServices API",
+    "type": "library",
+    "version": "1.0.0",
+    "require": {
+        "php": ">=7.2",
+        "guzzlehttp/guzzle": ">=6.3",
+        "ext-json": "*"
+    },
+    "require-dev": {
+        "filp/whoops": "^2.7",
+        "phpunit/phpunit": "^9.5.0"
+    },
+    "license": "BSD-2-Clause",
+    "authors": [
+        {
+            "name": "Bastian Leicht",
+            "email": "mail@bastianleicht.de"
+        }
+    ],
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {
+            "ResellerServices\\": "src/"
+        }
+    }
+}

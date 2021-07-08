@@ -1,0 +1,21 @@
+{
+  "name": "bastainleicht/tests",
+  "description": "Testing",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Bastian Leicht",
+      "email": "mail@bastianleicht.de"
+    }
+  ],
+  "require": {
+    "bastianleicht/reseller-services-php": "*"
+  },
+  "repositories": [
+    {
+      "type": "path",
+      "url": ".."
+    }
+  ]
+}
