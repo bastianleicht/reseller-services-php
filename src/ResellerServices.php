@@ -89,7 +89,7 @@ class ResellerServices
             throw new ParameterException();
         }
 
-        $params['Token'] = $this->getCredentials()->getToken();
+        $params['X-Auth-Token: '] = $this->getCredentials()->getToken();
 
         switch ($method) {
             case 'GET':
@@ -101,7 +101,7 @@ class ResellerServices
                 return $this->getHttpClient()->post($url, [
                     'verify' => false,
                     'query'  => [
-                        'api_token' => $this->getCredentials()->getToken(),
+                        'X-Auth-Token: ' => $this->getCredentials()->getToken(),
                     ],
                     'form_params'   => $params,
                 ]);
@@ -109,7 +109,7 @@ class ResellerServices
                 return $this->getHttpClient()->put($url, [
                     'verify' => false,
                     'query'  => [
-                        'api_token' => $this->getCredentials()->getToken(),
+                        'X-Auth-Token: ' => $this->getCredentials()->getToken(),
                     ],
                     'form_params'   => $params,
                 ]);
@@ -117,7 +117,7 @@ class ResellerServices
                 return $this->getHttpClient()->delete($url, [
                     'verify' => false,
                     'query'  => [
-                        'api_token' => $this->getCredentials()->getToken(),
+                        'X-Auth-Token: ' => $this->getCredentials()->getToken(),
                     ],
                     'form_params'   => $params,
                 ]);
