@@ -19,6 +19,7 @@ class ResellerServices
 {
     private $httpClient;
     private $credentials;
+    private $apiToken;
 
     /**
      * ResellerServices constructor.
@@ -31,6 +32,7 @@ class ResellerServices
         $sandbox = false,
         $httpClient = null
     ) {
+        $this->apiToken = $token;
         $this->setHttpClient($httpClient);
         $this->setCredentials($token, $sandbox);
     }
@@ -44,7 +46,7 @@ class ResellerServices
             'allow_redirects' => false,
             'follow_redirects' => false,
             'timeout' => 120,
-            'X-Auth-Token:' => $this->getCredentials()
+            'X-Auth-Token: ' => $this->apiToken,
         ]);
     }
 
@@ -63,6 +65,11 @@ class ResellerServices
     public function getHttpClient()
     {
         return $this->httpClient;
+    }
+
+    public function getToken()
+    {
+        return $this->apiToken;
     }
 
     /**
@@ -91,7 +98,7 @@ class ResellerServices
             throw new ParameterException();
         }
 
-        $params['X-Auth-Token: '] = $this->getCredentials()->getToken();
+        $params['X-Auth-Token: '] = $this->apiToken;
 
         switch ($method) {
             case 'GET':
@@ -103,7 +110,7 @@ class ResellerServices
                 return $this->getHttpClient()->post($url, [
                     'verify' => false,
                     'query'  => [
-                        'X-Auth-Token: ' => $this->getCredentials()->getToken(),
+                        'X-Auth-Token: ' => $this->apiToken,
                     ],
                     'form_params'   => $params,
                 ]);
@@ -111,7 +118,7 @@ class ResellerServices
                 return $this->getHttpClient()->put($url, [
                     'verify' => false,
                     'query'  => [
-                        'X-Auth-Token: ' => $this->getCredentials()->getToken(),
+                        'X-Auth-Token: ' => $this->apiToken,
                     ],
                     'form_params'   => $params,
                 ]);
@@ -119,7 +126,7 @@ class ResellerServices
                 return $this->getHttpClient()->delete($url, [
                     'verify' => false,
                     'query'  => [
-                        'X-Auth-Token: ' => $this->getCredentials()->getToken(),
+                        'X-Auth-Token: ' => $this->apiToken,
                     ],
                     'form_params'   => $params,
                 ]);
