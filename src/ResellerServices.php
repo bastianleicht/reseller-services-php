@@ -10,7 +10,9 @@ namespace ResellerServices;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
 use Psr\Http\Message\ResponseInterface;
+use ResellerServices\Domain\Nameserver;
 use ResellerServices\Exception\ParameterException;
+use ResellerServices\Domain\Domain;
 use ResellerServices\License\Plesk;
 
 class ResellerServices
@@ -189,10 +191,7 @@ class ResellerServices
      */
     public function payment(): Payment
     {
-        if (!$this->paymentHandler) {
-            $this->paymentHandler = new Payment($this);
-        }
-
+        if (!$this->paymentHandler) $this->paymentHandler = new Payment($this);
         return $this->paymentHandler;
     }
 
@@ -203,10 +202,7 @@ class ResellerServices
      */
     public function plesk(): Plesk
     {
-        if(!$this->pleskHandler) {
-            $this->pleskHandler = new Plesk($this);
-        }
-
+        if(!$this->pleskHandler) $this->pleskHandler = new Plesk($this);
         return $this->pleskHandler;
     }
 
@@ -217,10 +213,18 @@ class ResellerServices
      */
     public function domain(): Domain
     {
-        if(!$this->domainHandler) {
-            $this->domainHandler = new Domain($this);
-        }
-
+        if(!$this->domainHandler) $this->domainHandler = new Domain($this);
         return $this->domainHandler;
+    }
+
+    private $nameserverHandler;
+
+    /**
+     * @return Nameserver
+     */
+    public function nameserver(): Nameserver
+    {
+        if(!$this->nameserverHandler) $this->nameserverHandler = new Nameserver($this);
+        return $this->nameserverHandler;
     }
 }

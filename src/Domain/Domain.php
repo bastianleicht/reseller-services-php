@@ -5,9 +5,10 @@
  * PDX-License-Identifier: BSD-2-Clause
  */
 
-namespace ResellerServices;
+namespace ResellerServices\Domain;
 
 use GuzzleHttp\Exception\GuzzleException;
+use ResellerServices\ResellerServices;
 
 class Domain
 {
