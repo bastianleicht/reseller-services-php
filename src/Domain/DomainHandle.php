@@ -20,7 +20,7 @@ class DomainHandle
     }
 
     /**
-     * @param string $handle_id
+     * @param string $handle_id     BJSC65
      * @return array|string
      * @throws GuzzleException
      */
@@ -32,19 +32,19 @@ class DomainHandle
     }
 
     /**
-     * @param string $type
-     * @param string $sex
-     * @param string $organisation
-     * @param string $firstname
-     * @param string $lastname
-     * @param string $street
-     * @param integer $number
-     * @param integer $postcode
-     * @param string $city
-     * @param string $region
-     * @param string $country
-     * @param string $email
-     * @param string|null $phone
+     * @param string $type          PERS | ORG | ROLE
+     * @param string $sex           MALE | FEMALE
+     * @param string $organisation  Reseller-Services
+     * @param string $firstname     Max
+     * @param string $lastname      Mustermann
+     * @param string $street        Musterstraße
+     * @param int $number           1
+     * @param int $postcode         99999
+     * @param string $city          Musterstadt
+     * @param string $region        Hessen
+     * @param string $country       DE
+     * @param string $email         max.mustermann@email.com
+     * @param string|null $phone    +49 1234567
      * @return array|string
      * @throws GuzzleException
      */
@@ -69,7 +69,7 @@ class DomainHandle
     }
 
     /**
-     * @param string $handle_id
+     * @param string $handle_id     BJSC65
      * @return array|string
      * @throws GuzzleException
      */

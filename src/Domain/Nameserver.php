@@ -25,9 +25,11 @@ class Nameserver
     }
 
     /**
+     * @param string $nameserver    ns1.reselling.network
+     * @return array|string
      * @throws GuzzleException
      */
-    public function create($nameserver)
+    public function create(string $nameserver)
     {
         return $this->resellerServices->post('domain/nameserver/create', [
             'nameserver' => $nameserver
@@ -35,9 +37,11 @@ class Nameserver
     }
 
     /**
+     * @param string $nameserver    ns1.reselling.network
+     * @return array|string
      * @throws GuzzleException
      */
-    public function delete($nameserver)
+    public function delete(string $nameserver)
     {
         return $this->resellerServices->post('domain/nameserver/delete', [
             'nameserver' => $nameserver

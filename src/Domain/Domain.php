@@ -40,9 +40,11 @@ class Domain
     }
 
     /**
+     * @param string $tld   de | eu | com | net etc...
+     * @return array|string
      * @throws GuzzleException
      */
-    public function getPrice($tld)
+    public function getPrice(string $tld)
     {
         return $this->resellerServices->post('domain/getPrice', [
             'tld' => $tld
@@ -50,9 +52,11 @@ class Domain
     }
 
     /**
+     * @param string $domainName    domain.de
+     * @return array|string
      * @throws GuzzleException
      */
-    public function check($domainName)
+    public function check(string $domainName)
     {
         return $this->resellerServices->post('domain/check', [
             'domainName' => $domainName
@@ -60,9 +64,11 @@ class Domain
     }
 
     /**
+     * @param string $domainName    domain.de
+     * @return array|string
      * @throws GuzzleException
      */
-    public function getDomain($domainName)
+    public function getDomain(string $domainName)
     {
         return $this->resellerServices->post('domain/getDomain', [
             'domainName' => $domainName
@@ -70,9 +76,11 @@ class Domain
     }
 
     /**
+     * @param string $domainName    domain.de
+     * @return array|string
      * @throws GuzzleException
      */
-    public function getAuthcode($domainName)
+    public function getAuthcode(string $domainName)
     {
         return $this->resellerServices->post('domain/getAuthcode', [
             'domainName' => $domainName
@@ -80,9 +88,22 @@ class Domain
     }
 
     /**
+     * @param string $domainName            domain.de
+     * @param string $ownerContact          TEST5
+     * @param string $adminContact          TEST5
+     * @param string $technicianContact     TEST5
+     * @param string $zoneContact           TEST5
+     * @param string $ns1                   ns1.reselling.network
+     * @param string $ns2                   ns2.reselling.network
+     * @param string $ns3                   ns3.reselling.network
+     * @param string $ns4                   ns4.reselling.network
+     * @param string $ns5                   ns5.reselling.network
+     * @param int $years                    1
+     * @return array|string
      * @throws GuzzleException
      */
-    public function register($domainName, $ownerContact, $adminContact, $technicianContact, $zoneContact, $ns1, $ns2, $ns3, $ns4, $ns5, $years)
+    public function register(string $domainName, string $ownerContact, string $adminContact, string $technicianContact,
+                             string $zoneContact, string $ns1, string $ns2, string $ns3, string $ns4, string $ns5, int $years)
     {
         return $this->resellerServices->post('domain/register', [
             'domainName' => $domainName,
@@ -100,9 +121,23 @@ class Domain
     }
 
     /**
+     * @param string $domainName            domain.de
+     * @param string $ownerContact          TEST5
+     * @param string $adminContact          TEST5
+     * @param string $technicianContact     TEST5
+     * @param string $zoneContact           TEST5
+     * @param string $ns1                   ns1.reselling.network
+     * @param string $ns2                   ns2.reselling.network
+     * @param string $ns3                   ns3.reselling.network
+     * @param string $ns4                   ns4.reselling.network
+     * @param string $ns5                   ns5.reselling.network
+     * @param int $years                    1
+     * @param string $authCode              test1234
+     * @return array|string
      * @throws GuzzleException
      */
-    public function transfer($domainName, $ownerContact, $adminContact, $technicianContact, $zoneContact, $ns1, $ns2, $ns3, $ns4, $ns5, $years, $authCode)
+    public function transfer(string $domainName, string $ownerContact, string $adminContact, string $technicianContact, string $zoneContact,
+                             string $ns1, string $ns2, string $ns3, string $ns4, string $ns5, int $years, string $authCode)
     {
         return $this->resellerServices->post('domain/transfer', [
             'domainName' => $domainName,
@@ -121,9 +156,21 @@ class Domain
     }
 
     /**
+     * @param string $domainName            domain.de
+     * @param string $ownerContact          TEST5
+     * @param string $adminContact          TEST5
+     * @param string $technicianContact     TEST5
+     * @param string $zoneContact           TEST5
+     * @param string $ns1                   ns1.reselling.network
+     * @param string $ns2                   ns2.reselling.network
+     * @param string $ns3                   ns3.reselling.network
+     * @param string $ns4                   ns4.reselling.network
+     * @param string $ns5                   ns5.reselling.network
+     * @return array|string
      * @throws GuzzleException
      */
-    public function update($domainName, $ownerContact, $adminContact, $technicianContact, $zoneContact, $ns1, $ns2, $ns3, $ns4, $ns5)
+    public function update(string $domainName, string $ownerContact, string $adminContact, string $technicianContact,
+                           string $zoneContact, string $ns1, string $ns2, string $ns3, string $ns4, string $ns5)
     {
         return $this->resellerServices->post('domain/update', [
             'domainName' => $domainName,
@@ -140,9 +187,12 @@ class Domain
     }
 
     /**
+     * @param string $domainName    domain.de
+     * @param string $date          yyyy-mm-dd  (2021-10-12)
+     * @return array|string
      * @throws GuzzleException
      */
-    public function delete($domainName, $date)
+    public function delete(string $domainName, string $date)
     {
         return $this->resellerServices->post('domain/delete', [
             'domainName' => $domainName,
@@ -151,9 +201,11 @@ class Domain
     }
 
     /**
+     * @param string $domainName    domain.de
+     * @return array|string
      * @throws GuzzleException
      */
-    public function undelete($domainName)
+    public function undelete(string $domainName)
     {
         return $this->resellerServices->post('domain/undelete', [
             'domainName' => $domainName
