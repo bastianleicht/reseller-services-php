@@ -33,6 +33,9 @@ class Payment
         ]);
     }
 
+    /**
+     * @throws GuzzleException
+     */
     public function validate($transaction_id)
     {
         return $this->resellerServices->post('payment/check', [
