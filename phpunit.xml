@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<phpunit
-        colors="true"
-        convertErrorsToExceptions="true"
-        convertNoticesToExceptions="true"
-        convertWarningsToExceptions="true"
-        processIsolation="false"
-        stopOnFailure="false"
-        syntaxCheck="false">
+<!--
+  ~ Copyright (c) 2021, Bastian Leicht <mail@bastianleicht.de>
+  ~
+  ~ PDX-License-Identifier: BSD-2-Clause
+  -->
+
+<phpunit bootstrap="vendor/autoload.php"
+         colors="true"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         processIsolation="false"
+         stopOnFailure="false"
+         syntaxCheck="false">
     <testsuites>
         <testsuite name="ResellerServices Tests">
-            <directory>tests/</directory>
+            <directory>tests</directory>
         </testsuite>
     </testsuites>
 </phpunit>
