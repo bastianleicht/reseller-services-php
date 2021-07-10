@@ -61,7 +61,7 @@ class ResellerServices
     /**
      * @return Client
      */
-    public function getHttpClient()
+    public function getHttpClient(): Client
     {
         return $this->httpClient;
     }
@@ -74,7 +74,7 @@ class ResellerServices
     /**
      * @return Credentials
      */
-    private function getCredentials()
+    private function getCredentials(): Credentials
     {
         return $this->credentials;
     }
@@ -89,7 +89,7 @@ class ResellerServices
      *
      * @throws ParameterException If the given field in params is not an array
      */
-    private function request(string $actionPath, array $params = [], string $method = 'GET')
+    private function request(string $actionPath, array $params = [], string $method = 'GET'): ResponseInterface
     {
         $url = $this->getCredentials()->getUrl() . $actionPath;
 
