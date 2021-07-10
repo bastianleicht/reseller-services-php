@@ -15,7 +15,12 @@ class Credentials
     private $sandbox;
     private $url;
 
-    public function __construct($token, $sandbox = false)
+    /**
+     * Credentials constructor.
+     * @param string $token
+     * @param bool $sandbox
+     */
+    public function __construct(string $token, bool $sandbox = false)
     {
         if (!is_string($token)) {
             throw new ParameterException('invalid argument');
