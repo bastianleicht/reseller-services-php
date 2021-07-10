@@ -1,10 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-  ~ Copyright (c) 2021, Bastian Leicht <mail@bastianleicht.de>
-  ~
-  ~ PDX-License-Identifier: BSD-2-Clause
-  -->
-
 <phpunit bootstrap="vendor/autoload.php"
          colors="true"
          convertErrorsToExceptions="true"
