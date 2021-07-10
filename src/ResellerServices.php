@@ -24,12 +24,13 @@ class ResellerServices
     /**
      * ResellerServices constructor.
      *
-     * @param $token Credentials | string
-     * @param null $httpClient
+     * @param string    $token      API Token for all requests
+     * @param bool      $sandbox    Enables the Sandbox Mode
+     * @param null      $httpClient
      */
     public function __construct(
-        $token,
-        $sandbox = false,
+        string $token,
+        bool $sandbox = false,
         $httpClient = null
     ) {
         $this->apiToken = $token;
