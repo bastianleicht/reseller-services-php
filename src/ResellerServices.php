@@ -46,7 +46,6 @@ class ResellerServices
             'allow_redirects' => false,
             'follow_redirects' => false,
             'timeout' => 120,
-            'X-Auth-Token: ' => $this->apiToken,
         ]);
     }
 
@@ -109,24 +108,24 @@ class ResellerServices
             case 'POST':
                 return $this->getHttpClient()->post($url, [
                     'verify' => false,
-                    'query'  => [
-                        'X-Auth-Token: ' => $this->apiToken,
+                    'headers'  => [
+                        'X-Auth-Token' => $this->apiToken,
                     ],
                     'form_params'   => $params,
                 ]);
             case 'PUT':
                 return $this->getHttpClient()->put($url, [
                     'verify' => false,
-                    'query'  => [
-                        'X-Auth-Token: ' => $this->apiToken,
+                    'headers'  => [
+                        'X-Auth-Token' => $this->apiToken,
                     ],
                     'form_params'   => $params,
                 ]);
             case 'DELETE':
                 return $this->getHttpClient()->delete($url, [
                     'verify' => false,
-                    'query'  => [
-                        'X-Auth-Token: ' => $this->apiToken,
+                    'headers'  => [
+                        'X-Auth-Token' => $this->apiToken,
                     ],
                     'form_params'   => $params,
                 ]);
