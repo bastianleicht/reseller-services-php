@@ -97,7 +97,7 @@ class ResellerServices
             throw new ParameterException();
         }
 
-        $params['X-Auth-Token: '] = $this->apiToken;
+        $params['X-Auth-Token'] = $this->apiToken;
 
         switch ($method) {
             case 'GET':
