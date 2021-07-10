@@ -13,10 +13,30 @@ use ResellerServices\ResellerServices;
 class Domain
 {
     private $resellerServices;
+    private $nameserverHandler;
+    private $domainHandle;
 
     public function __construct(ResellerServices $resellerServices)
     {
         $this->resellerServices = $resellerServices;
+    }
+
+    /**
+     * @return Nameserver
+     */
+    public function nameserver(): Nameserver
+    {
+        if(!$this->nameserverHandler) $this->nameserverHandler = new Nameserver($this->resellerServices);
+        return $this->nameserverHandler;
+    }
+
+    /**
+     * @return DomainHandle
+     */
+    public function handle(): DomainHandle
+    {
+        if(!$this->domainHandle) $this->domainHandle = new DomainHandle($this->resellerServices);
+        return $this->domainHandle;
     }
 
     /**

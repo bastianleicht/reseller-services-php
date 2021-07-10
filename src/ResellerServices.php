@@ -223,14 +223,5 @@ class ResellerServices
         return $this->domainHandler;
     }
 
-    private $nameserverHandler;
 
-    /**
-     * @return Nameserver
-     */
-    public function nameserver(): Nameserver
-    {
-        if(!$this->nameserverHandler) $this->nameserverHandler = new Nameserver($this);
-        return $this->nameserverHandler;
-    }
 }
