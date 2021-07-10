@@ -30,9 +30,11 @@ class Plesk
     }
 
     /**
+     * @param string $license_type  PLSK_12_ADMIN_VPS | PLSK_12_PRO_VPS | PLSK_12_HOST_VPS | PLSK_12_ADMIN | PLSK_12_PRO | PLSK_12_HOST
+     * @return array|string
      * @throws GuzzleException
      */
-    public function order($license_type)
+    public function order(string $license_type)
     {
         return $this->resellerServices->post('license/order', [
             'type' => $license_type
@@ -40,9 +42,11 @@ class Plesk
     }
 
     /**
+     * @param string $license_id    PLSK.00000000
+     * @return array|string
      * @throws GuzzleException
      */
-    public function reset($license_id)
+    public function reset(string $license_id)
     {
         return $this->resellerServices->post('license/reset', [
             'id' => $license_id
@@ -50,9 +54,12 @@ class Plesk
     }
 
     /**
+     * @param string $license_id    PLSK.00000000
+     * @param string $ip_address    1.1.1.1
+     * @return array|string
      * @throws GuzzleException
      */
-    public function setIpBinding($license_id, $ip_address)
+    public function setIpBinding(string $license_id, string $ip_address)
     {
         return $this->resellerServices->post('license/setIpBinding', [
             'id' => $license_id,
@@ -61,9 +68,11 @@ class Plesk
     }
 
     /**
+     * @param string $license_id    PLSK.00000000
+     * @return array|string
      * @throws GuzzleException
      */
-    public function getIpBinding($license_id)
+    public function getIpBinding(string $license_id)
     {
         return $this->resellerServices->post('license/getIpBinding', [
             'id' => $license_id
@@ -71,9 +80,12 @@ class Plesk
     }
 
     /**
+     * @param string $license_id    PLSK.00000000
+     * @param string $date          yyyy-mm-dd  (2021-10-12)
+     * @return array|string
      * @throws GuzzleException
      */
-    public function delete($license_id, $date)
+    public function delete(string $license_id, string $date)
     {
         return $this->resellerServices->post('license/delete', [
             'id' => $license_id,
