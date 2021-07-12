@@ -15,6 +15,7 @@ class Domain
     private $resellerServices;
     private $nameserverHandler;
     private $domainHandle;
+    private $domainDNS;
 
     public function __construct(ResellerServices $resellerServices)
     {
@@ -37,6 +38,15 @@ class Domain
     {
         if(!$this->domainHandle) $this->domainHandle = new DomainHandle($this->resellerServices);
         return $this->domainHandle;
+    }
+
+    /**
+     * @return DomainDNS
+     */
+    public function dns(): DomainDNS
+    {
+        if(!$this->domainDNS) $this->domainDNS = new DomainDNS($this->resellerServices);
+        return $this->domainDNS;
     }
 
     /**
