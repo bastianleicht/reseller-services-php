@@ -7,7 +7,6 @@
 
 namespace ResellerServices\VirtualServer;
 
-
 use GuzzleHttp\Exception\GuzzleException;
 use ResellerServices\ResellerServices;
 
@@ -16,6 +15,7 @@ class kvm
     private $resellerServices;
     private $kvmBackupHandler;
     private $kvmNetworkHandler;
+    private $kvmJobHandler;
 
     public function __construct(ResellerServices $resellerServices)
     {
@@ -40,6 +40,14 @@ class kvm
         return $this->kvmNetworkHandler;
     }
 
+    /**
+     * @return kvmJobs
+     */
+    public function job(): kvmJobs
+    {
+        if(!$this->kvmJobHandler) $this->kvmJobHandler = new kvmJobs($this->resellerServices);
+        return $this->kvmJobHandler;
+    }
 
     public function list()
     {
