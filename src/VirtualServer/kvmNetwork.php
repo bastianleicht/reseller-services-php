@@ -7,6 +7,7 @@
 
 namespace ResellerServices\VirtualServer;
 
+use GuzzleHttp\Exception\GuzzleException;
 use ResellerServices\ResellerServices;
 
 class kvmNetwork
@@ -16,6 +17,22 @@ class kvmNetwork
     public function __construct(ResellerServices $resellerServices)
     {
         $this->resellerServices = $resellerServices;
+    }
+
+    /**
+     * @param string $server_id
+     * @param string $ip_address
+     * @param string $rnds
+     * @return array|string
+     * @throws GuzzleException
+     */
+    public function setRDNS(string $server_id, string $ip_address, string $rnds)
+    {
+        return $this->resellerServices->post('rootserver/ip/setRDNS', [
+            'vm_id' => $server_id,
+            'ip' => $ip_address,
+            'rdns' => $rnds
+        ]);
     }
 
 }
