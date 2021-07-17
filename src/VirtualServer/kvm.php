@@ -8,6 +8,7 @@
 namespace ResellerServices\VirtualServer;
 
 use GuzzleHttp\Exception\GuzzleException;
+use ResellerServices\Exception\AssertNotImplemented;
 use ResellerServices\ResellerServices;
 
 class kvm
@@ -55,6 +56,9 @@ class kvm
      */
     public function getTemplates()
     {
+        if($this->resellerServices->isSandbox() === true) {
+            throw new AssertNotImplemented();
+        }
         return $this->resellerServices->post('rootserver/os/get', [ ]);
     }
 
@@ -65,6 +69,9 @@ class kvm
      */
     public function getDetails(string $server_id)
     {
+        if($this->resellerServices->isSandbox() === true) {
+            throw new AssertNotImplemented();
+        }
         return $this->resellerServices->post('rootserver/getDetails', [
             'vm_id' => $server_id
         ]);
@@ -77,6 +84,9 @@ class kvm
      */
     public function getStatus(string $server_id)
     {
+        if($this->resellerServices->isSandbox() === true) {
+            throw new AssertNotImplemented();
+        }
         return $this->resellerServices->post('rootserver/getStatus', [
             'vm_id' => $server_id
         ]);
@@ -89,6 +99,9 @@ class kvm
      */
     public function getConfig(string $server_id)
     {
+        if($this->resellerServices->isSandbox() === true) {
+            throw new AssertNotImplemented();
+        }
         return $this->resellerServices->post('rootserver/getConfig', [
             'vm_id' => $server_id
         ]);
@@ -105,6 +118,9 @@ class kvm
      */
     public function order(int $cores, int $memory, int $disk, int $ips, string $os)
     {
+        if($this->resellerServices->isSandbox() === true) {
+            throw new AssertNotImplemented();
+        }
         return $this->resellerServices->post('rootserver/order', [
             'cores' => $cores,
             'memory' => $memory,
@@ -125,6 +141,9 @@ class kvm
      */
     public function change(string $server_id, int $cores, int $memory, int $disk, int $ips)
     {
+        if($this->resellerServices->isSandbox() === true) {
+            throw new AssertNotImplemented();
+        }
         //TODO: Server id nicht in API?
         return $this->resellerServices->post('rootserver/change', [
             'vm_id' => $server_id,
@@ -143,6 +162,9 @@ class kvm
      */
     public function delete(string $server_id, bool $force_delete = false)
     {
+        if($this->resellerServices->isSandbox() === true) {
+            throw new AssertNotImplemented();
+        }
         return $this->resellerServices->post('rootserver/delete', [
             'vm_id' => $server_id,
             'force' => $force_delete
@@ -156,6 +178,9 @@ class kvm
      */
     public function start(string $server_id)
     {
+        if($this->resellerServices->isSandbox() === true) {
+            throw new AssertNotImplemented();
+        }
         return $this->resellerServices->post('rootserver/manage/start', [
             'vm_id' => $server_id
         ]);
@@ -168,6 +193,9 @@ class kvm
      */
     public function shutdown(string $server_id)
     {
+        if($this->resellerServices->isSandbox() === true) {
+            throw new AssertNotImplemented();
+        }
         return $this->resellerServices->post('rootserver/manage/shutdown', [
             'vm_id' => $server_id
         ]);
@@ -180,6 +208,9 @@ class kvm
      */
     public function stop(string $server_id)
     {
+        if($this->resellerServices->isSandbox() === true) {
+            throw new AssertNotImplemented();
+        }
         return $this->resellerServices->post('rootserver/manage/stop', [
             'vm_id' => $server_id
         ]);
@@ -192,6 +223,9 @@ class kvm
      */
     public function reboot(string $server_id)
     {
+        if($this->resellerServices->isSandbox() === true) {
+            throw new AssertNotImplemented();
+        }
         return $this->resellerServices->post('rootserver/manage/reboot', [
             'vm_id' => $server_id
         ]);
@@ -205,6 +239,9 @@ class kvm
      */
     public function reinstall(string $server_id, string $server_os)
     {
+        if($this->resellerServices->isSandbox() === true) {
+            throw new AssertNotImplemented();
+        }
         return $this->resellerServices->post('rootserver/manage/reinstall', [
             'vm_id' => $server_id,
             'os' => $server_os
@@ -218,6 +255,9 @@ class kvm
      */
     public function resetPassword(string $server_id)
     {
+        if($this->resellerServices->isSandbox() === true) {
+            throw new AssertNotImplemented();
+        }
         return $this->resellerServices->post('rootserver/manage/reset', [
             'vm_id' => $server_id
         ]);
@@ -230,6 +270,9 @@ class kvm
      */
     public function noVNC(string $server_id)
     {
+        if($this->resellerServices->isSandbox() === true) {
+            throw new AssertNotImplemented();
+        }
         return $this->resellerServices->post('rootserver/console/get', [
             'vm_id' => $server_id
         ]);
