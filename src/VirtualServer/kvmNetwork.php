@@ -8,6 +8,7 @@
 namespace ResellerServices\VirtualServer;
 
 use GuzzleHttp\Exception\GuzzleException;
+use ResellerServices\Exception\AssertNotImplemented;
 use ResellerServices\ResellerServices;
 
 class kvmNetwork
@@ -28,6 +29,9 @@ class kvmNetwork
      */
     public function setRDNS(string $server_id, string $ip_address, string $rnds)
     {
+        if($this->resellerServices->isSandbox() === true) {
+            throw new AssertNotImplemented();
+        }
         return $this->resellerServices->post('rootserver/ip/setRDNS', [
             'vm_id' => $server_id,
             'ip' => $ip_address,
