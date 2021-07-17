@@ -8,6 +8,7 @@
 namespace ResellerServices\Domain;
 
 use GuzzleHttp\Exception\GuzzleException;
+use ResellerServices\Exception\AssertNotImplemented;
 use ResellerServices\ResellerServices;
 
 class DomainDNS
@@ -26,6 +27,9 @@ class DomainDNS
      */
     public function get(string $domainName)
     {
+        if($this->resellerServices->isSandbox() === true) {
+            throw new AssertNotImplemented();
+        }
         return $this->resellerServices->post('domain/dns/get', [
             'domainName' => $domainName
         ]);
@@ -38,6 +42,9 @@ class DomainDNS
      */
     public function update(string $domainName)
     {
+        if($this->resellerServices->isSandbox() === true) {
+            throw new AssertNotImplemented();
+        }
         return $this->resellerServices->post('domain/dns/update', [
             'domainName' => $domainName
         ]);
