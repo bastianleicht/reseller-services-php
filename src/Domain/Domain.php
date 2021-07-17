@@ -50,6 +50,18 @@ class Domain
     }
 
     /**
+     * @param bool $company
+     * @return array|string
+     * @throws GuzzleException
+     */
+    public function getPricelist(bool $company)
+    {
+        return $this->resellerServices->post('domain/getPricelist', [
+            'company' => $company
+        ]);
+    }
+
+    /**
      * @param string $tld   de | eu | com | net etc...
      * @return array|string
      * @throws GuzzleException
