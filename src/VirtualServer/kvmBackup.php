@@ -8,6 +8,7 @@
 namespace ResellerServices\VirtualServer;
 
 use GuzzleHttp\Exception\GuzzleException;
+use ResellerServices\Exception\AssertNotImplemented;
 use ResellerServices\ResellerServices;
 
 class kvmBackup
@@ -26,6 +27,9 @@ class kvmBackup
      */
     public function list(string $server_id)
     {
+        if($this->resellerServices->isSandbox() === true) {
+            throw new AssertNotImplemented();
+        }
         return $this->resellerServices->post('rootserver/backups/list', [
             'vm_id' => $server_id
         ]);
@@ -38,6 +42,9 @@ class kvmBackup
      */
     public function create(string $server_id)
     {
+        if($this->resellerServices->isSandbox() === true) {
+            throw new AssertNotImplemented();
+        }
         return $this->resellerServices->post('rootserver/backups/create', [
             'vm_id' => $server_id
         ]);
@@ -51,6 +58,9 @@ class kvmBackup
      */
     public function restore(string $server_id, string $backup)
     {
+        if($this->resellerServices->isSandbox() === true) {
+            throw new AssertNotImplemented();
+        }
         return $this->resellerServices->post('rootserver/backups/restore', [
             'vm_id' => $server_id,
             'backup' => $backup
@@ -64,6 +74,9 @@ class kvmBackup
      */
     public function status(string $server_id)
     {
+        if($this->resellerServices->isSandbox() === true) {
+            throw new AssertNotImplemented();
+        }
         return $this->resellerServices->post('rootserver/backups/status', [
             'vm_id' => $server_id
         ]);
