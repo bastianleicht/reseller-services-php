@@ -21,6 +21,7 @@ class ResellerServices
     private $httpClient;
     private $credentials;
     private $apiToken;
+    private $sandbox;
 
     /**
      * ResellerServices constructor.
@@ -35,6 +36,7 @@ class ResellerServices
         $httpClient = null
     ) {
         $this->apiToken = $token;
+        $this->sandbox = $sandbox;
         $this->setHttpClient($httpClient);
         $this->setCredentials($token, $sandbox);
     }
@@ -68,9 +70,20 @@ class ResellerServices
         return $this->httpClient;
     }
 
+    /**
+     * @return string
+     */
     public function getToken()
     {
         return $this->apiToken;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isSandbox()
+    {
+        return $this->sandbox;
     }
 
     /**
