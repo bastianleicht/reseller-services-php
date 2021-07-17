@@ -14,6 +14,7 @@ use ResellerServices\Domain\Nameserver;
 use ResellerServices\Exception\ParameterException;
 use ResellerServices\Domain\Domain;
 use ResellerServices\License\Plesk;
+use ResellerServices\VirtualServer\kvm;
 
 class ResellerServices
 {
@@ -222,6 +223,17 @@ class ResellerServices
     {
         if(!$this->domainHandler) $this->domainHandler = new Domain($this);
         return $this->domainHandler;
+    }
+
+    private $virtualServerHandler;
+
+    /**
+     * @return kvm
+     */
+    public function virtualServer(): kvm
+    {
+        if(!$this->virtualServerHandler) $this->virtualServerHandler = new kvm($this);
+        return $this->virtualServerHandler;
     }
 
 
