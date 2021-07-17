@@ -8,6 +8,7 @@
 namespace ResellerServices\License;
 
 use GuzzleHttp\Exception\GuzzleException;
+use ResellerServices\Exception\AssertNotImplemented;
 use ResellerServices\ResellerServices;
 
 class Plesk
@@ -61,6 +62,9 @@ class Plesk
      */
     public function setIpBinding(string $license_id, string $ip_address)
     {
+        if($this->resellerServices->isSandbox() === true) {
+            throw new AssertNotImplemented();
+        }
         return $this->resellerServices->post('license/setIpBinding', [
             'id' => $license_id,
             'ip' => $ip_address
@@ -74,6 +78,9 @@ class Plesk
      */
     public function getIpBinding(string $license_id)
     {
+        if($this->resellerServices->isSandbox() === true) {
+            throw new AssertNotImplemented();
+        }
         return $this->resellerServices->post('license/getIpBinding', [
             'id' => $license_id
         ]);
