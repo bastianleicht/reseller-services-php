@@ -8,6 +8,7 @@
 namespace ResellerServices\Domain;
 
 use GuzzleHttp\Exception\GuzzleException;
+use ResellerServices\Exception\AssertNotImplemented;
 use ResellerServices\ResellerServices;
 
 class Nameserver
@@ -31,6 +32,9 @@ class Nameserver
      */
     public function create(string $nameserver)
     {
+        if($this->resellerServices->isSandbox() === true) {
+            throw new AssertNotImplemented();
+        }
         return $this->resellerServices->post('domain/nameserver/create', [
             'nameserver' => $nameserver
         ]);
@@ -43,6 +47,9 @@ class Nameserver
      */
     public function delete(string $nameserver)
     {
+        if($this->resellerServices->isSandbox() === true) {
+            throw new AssertNotImplemented();
+        }
         return $this->resellerServices->post('domain/nameserver/delete', [
             'nameserver' => $nameserver
         ]);
