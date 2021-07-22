@@ -23,11 +23,13 @@ class Plesk
     public function getPrices()
     {
         //TODO: Hat Björn noch nicht hinzugefügt.
+        throw new AssertNotImplemented();
     }
 
     public function getLicense()
     {
         //TODO: Hat Björn noch nicht hinzugefügt.
+        throw new AssertNotImplemented();
     }
 
     /**
