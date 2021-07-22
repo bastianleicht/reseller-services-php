@@ -112,7 +112,7 @@ class ResellerServices
             throw new ParameterException();
         }
 
-        $params['X-Auth-Token'] = $this->apiToken;
+        $params['Authorization'] = 'Bearer ' . $this->apiToken;
 
         switch ($method) {
             case 'GET':
@@ -124,7 +124,9 @@ class ResellerServices
                 return $this->getHttpClient()->post($url, [
                     'verify' => false,
                     'headers'  => [
-                        'X-Auth-Token' => $this->apiToken,
+                        'Content-Type' => 'application/json',
+                        'Accept' => 'application/json',
+                        'Authorization' => 'Bearer ' . $this->apiToken,
                     ],
                     'form_params'   => $params,
                 ]);
@@ -132,7 +134,9 @@ class ResellerServices
                 return $this->getHttpClient()->put($url, [
                     'verify' => false,
                     'headers'  => [
-                        'X-Auth-Token' => $this->apiToken,
+                        'Content-Type' => 'application/json',
+                        'Accept' => 'application/json',
+                        'Authorization' => 'Bearer ' . $this->apiToken,
                     ],
                     'form_params'   => $params,
                 ]);
@@ -140,7 +144,9 @@ class ResellerServices
                 return $this->getHttpClient()->delete($url, [
                     'verify' => false,
                     'headers'  => [
-                        'X-Auth-Token' => $this->apiToken,
+                        'Content-Type' => 'application/json',
+                        'Accept' => 'application/json',
+                        'Authorization' => 'Bearer ' . $this->apiToken,
                     ],
                     'form_params'   => $params,
                 ]);
