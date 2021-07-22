@@ -10,6 +10,7 @@ namespace ResellerServices;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
 use Psr\Http\Message\ResponseInterface;
+use ResellerServices\Accounting\Account;
 use ResellerServices\Domain\Nameserver;
 use ResellerServices\Exception\ParameterException;
 use ResellerServices\Domain\Domain;
@@ -212,6 +213,10 @@ class ResellerServices
     }
 
     private $paymentHandler;
+    private $pleskHandler;
+    private $domainHandler;
+    private $virtualServerHandler;
+    private $accountingHandler;
 
     /**
      * @return Payment
@@ -222,8 +227,6 @@ class ResellerServices
         return $this->paymentHandler;
     }
 
-    private $pleskHandler;
-
     /**
      * @return Plesk
      */
@@ -232,8 +235,6 @@ class ResellerServices
         if(!$this->pleskHandler) $this->pleskHandler = new Plesk($this);
         return $this->pleskHandler;
     }
-
-    private $domainHandler;
 
     /**
      * @return Domain
@@ -244,8 +245,6 @@ class ResellerServices
         return $this->domainHandler;
     }
 
-    private $virtualServerHandler;
-
     /**
      * @return kvm
      */
@@ -253,6 +252,15 @@ class ResellerServices
     {
         if(!$this->virtualServerHandler) $this->virtualServerHandler = new kvm($this);
         return $this->virtualServerHandler;
+    }
+
+    /**
+     * @return Account
+     */
+    public function accounting(): Account
+    {
+        if(!$this->accountingHandler) $this->accountingHandler = new Account($this);
+        return $this->accountingHandler;
     }
 
 
