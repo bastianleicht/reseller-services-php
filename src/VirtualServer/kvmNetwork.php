@@ -23,11 +23,11 @@ class kvmNetwork
     /**
      * @param string $server_id
      * @param string $ip_address
-     * @param string $rnds
+     * @param string $rdns
      * @return array|string
      * @throws GuzzleException
      */
-    public function setRDNS(string $server_id, string $ip_address, string $rnds)
+    public function setRDNS(string $server_id, string $ip_address, string $rdns)
     {
         if($this->resellerServices->isSandbox() === true) {
             throw new AssertNotImplemented();
@@ -35,7 +35,7 @@ class kvmNetwork
         return $this->resellerServices->post('rootserver/ip/setRDNS', [
             'vm_id' => $server_id,
             'ip' => $ip_address,
-            'rdns' => $rnds
+            'rdns' => $rdns
         ]);
     }
 
