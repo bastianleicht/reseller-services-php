@@ -4,7 +4,6 @@
     "license": "BSD-2-Clause",
     "type": "library",
     "keywords": ["Reselling", "Hosting", "Reseller-Services", "PHP", "API", "Domain"],
-    "version": "dev-1.0.1",
     "minimum-stability": "dev",
     "prefer-stable": true,
     "authors": [
