@@ -42,6 +42,7 @@ class DomainDNS
      */
     public function update(string $domainName)
     {
+        //TODO: This is not right!
         if($this->resellerServices->isSandbox() === true) {
             throw new AssertNotImplemented();
         }
