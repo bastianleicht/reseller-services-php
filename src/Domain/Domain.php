@@ -55,7 +55,7 @@ class Domain
      * @return array|string
      * @throws GuzzleException
      */
-    public function getPricelist(bool $company)
+    public function getPricelist(bool $company = false)
     {
         if($this->resellerServices->isSandbox() === true) {
             throw new AssertNotImplemented();
