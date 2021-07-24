@@ -7,7 +7,7 @@ This **PHP 7.2+** library allows you to communicate with the Reseller-Services A
 [![Latest Unstable Version](http://poser.pugx.org/bastianleicht/reseller-services-php/v/unstable)](https://packagist.org/packages/bastianleicht/reseller-services-php)
 [![License](http://poser.pugx.org/bastianleicht/reseller-services-php/license)](https://packagist.org/packages/bastianleicht/reseller-services-php)
 
-> You can find the full API documentation [here](https://api.reseller-services.de)!
+> You can find the full API documentation [here](https://docs.reseller-services.de)!
 
 ## Getting Started
 
