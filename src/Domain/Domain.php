@@ -222,6 +222,19 @@ class Domain
     }
 
     /**
+     * @param $domainName
+     * @return array|string
+     * @throws GuzzleException
+     */
+    public function restore($domainName)
+    {
+        throw new AssertNotImplemented();
+        return $this->resellerServices->post('domain/restore', [
+            'domainName' => $domainName,
+        ]);
+    }
+
+    /**
      * @param string $domainName    domain.de
      * @param string $date          yyyy-mm-dd  (2021-10-12)
      * @return array|string
