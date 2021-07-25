@@ -72,9 +72,6 @@ class Domain
      */
     public function getPrice(string $tld)
     {
-        if($this->resellerServices->isSandbox() === true) {
-            throw new AssertNotImplemented();
-        }
         return $this->resellerServices->post('domain/getPrice', [
             'tld' => $tld
         ]);
@@ -87,9 +84,6 @@ class Domain
      */
     public function check(string $domainName)
     {
-        if($this->resellerServices->isSandbox() === true) {
-            throw new AssertNotImplemented();
-        }
         return $this->resellerServices->post('domain/check', [
             'domainName' => $domainName
         ]);
@@ -102,9 +96,6 @@ class Domain
      */
     public function getDomain(string $domainName)
     {
-        if($this->resellerServices->isSandbox() === true) {
-            throw new AssertNotImplemented();
-        }
         return $this->resellerServices->post('domain/getDomain', [
             'domainName' => $domainName
         ]);
@@ -143,9 +134,6 @@ class Domain
     public function register(string $domainName, string $ownerContact, string $adminContact, string $technicianContact,
                              string $zoneContact, string $ns1, string $ns2, string $ns3, string $ns4, string $ns5, int $years)
     {
-        if($this->resellerServices->isSandbox() === true) {
-            throw new AssertNotImplemented();
-        }
         return $this->resellerServices->post('domain/register', [
             'domainName' => $domainName,
             'ownerC' => $ownerContact,
@@ -241,9 +229,6 @@ class Domain
      */
     public function delete(string $domainName, string $date)
     {
-        if($this->resellerServices->isSandbox() === true) {
-            throw new AssertNotImplemented();
-        }
         return $this->resellerServices->post('domain/delete', [
             'domainName' => $domainName,
             'date' => $date
@@ -257,9 +242,6 @@ class Domain
      */
     public function undelete(string $domainName)
     {
-        if($this->resellerServices->isSandbox() === true) {
-            throw new AssertNotImplemented();
-        }
         return $this->resellerServices->post('domain/undelete', [
             'domainName' => $domainName
         ]);
