@@ -27,9 +27,6 @@ class DomainHandle
      */
     public function get(string $handle_id)
     {
-        if($this->resellerServices->isSandbox() === true) {
-            throw new AssertNotImplemented();
-        }
         return $this->resellerServices->post('domain/handle/get', [
             'handle_id' => $handle_id
         ]);
@@ -55,9 +52,6 @@ class DomainHandle
     public function create(string $type, string $sex, string $organisation, string $firstname, string $lastname, string $street,
                            int $number, int $postcode, string $city, string $region, string $country, string $email, string $phone = null)
     {
-        if($this->resellerServices->isSandbox() === true) {
-            throw new AssertNotImplemented();
-        }
         return $this->resellerServices->post('domain/handle/create', [
             'type' => $type,
             'sex' => $sex,
@@ -82,9 +76,6 @@ class DomainHandle
      */
     public function delete(string $handle_id)
     {
-        if($this->resellerServices->isSandbox() === true) {
-            throw new AssertNotImplemented();
-        }
         return $this->resellerServices->post('domain/handle/delete', [
             'handle_id' => $handle_id
         ]);
