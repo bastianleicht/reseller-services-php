@@ -27,9 +27,6 @@ class DomainDNS
      */
     public function get(string $domainName)
     {
-        if($this->resellerServices->isSandbox() === true) {
-            throw new AssertNotImplemented();
-        }
         return $this->resellerServices->post('domain/dns/get', [
             'domainName' => $domainName
         ]);
@@ -42,10 +39,6 @@ class DomainDNS
      */
     public function update(string $domainName)
     {
-        //TODO: This is not right!
-        if($this->resellerServices->isSandbox() === true) {
-            throw new AssertNotImplemented();
-        }
         return $this->resellerServices->post('domain/dns/update', [
             'domainName' => $domainName
         ]);
