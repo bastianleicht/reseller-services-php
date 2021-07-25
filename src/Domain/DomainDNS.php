@@ -34,13 +34,15 @@ class DomainDNS
 
     /**
      * @param string $domainName
+     * @param array $records
      * @return array|string
      * @throws GuzzleException
      */
-    public function update(string $domainName)
+    public function update(string $domainName, array $records)
     {
         return $this->resellerServices->post('domain/dns/update', [
-            'domainName' => $domainName
+            'domainName' => $domainName,
+            'records' => $records
         ]);
     }
 
