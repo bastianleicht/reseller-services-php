@@ -50,3 +50,5 @@ $client = new ResellerServices('API-Token');
 print_r($client->domain()->getPrice('de'));
 ?>
 ```
+
+If you want more info on how to use this PHP-API you should check out the [Wiki](https://github.com/bastianleicht/reseller-services-php/wiki).
