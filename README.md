@@ -47,7 +47,7 @@ use ResellerServices\ResellerServices;
 $client = new ResellerServices('API-Token');
 
 // Then you are able to perform a request
-print_r($client->domain()->getPrice('de'));
+var_dump($client->domain()->getPrice('de'));
 ?>
 ```
 
