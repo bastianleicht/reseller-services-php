@@ -7,6 +7,7 @@
  * [register](#register)
  * [transfer](#transfer)
  * [update](#update)
+ * [restore](#restore)
  * [delete](#delete)
  * [undelete](#undelete)
 
