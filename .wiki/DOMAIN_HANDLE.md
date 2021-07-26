@@ -54,6 +54,19 @@ returns:
 }
 ```
 
+### update
+```php
+$handle_id = 'HANDLE';
+
+$client->domain()->handle()->update($handle_id);
+```
+returns:
+```json
+{
+  "TODO": true
+}
+```
+
 ### delete
 ```php
 $handle_id = 'HANDLE';
