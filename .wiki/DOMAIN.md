@@ -157,6 +157,19 @@ returns:
 }
 ```
 
+### restore
+```php
+$domainName = 'reseller-services.de';
+
+$client->domain()->restore($domainName);
+```
+returns:
+```json
+{
+  "TODO": true
+}
+```
+
 ### delete
 ```php
 $domainName = 'reseller-services.de';
