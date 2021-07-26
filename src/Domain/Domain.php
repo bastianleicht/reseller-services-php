@@ -67,12 +67,14 @@ class Domain
 
     /**
      * @param string $tld   de | eu | com | net etc...
+     * @param bool $company
      * @return array|string
      * @throws GuzzleException
      */
-    public function getPrice(string $tld)
+    public function getPrice(string $tld, bool $company = false)
     {
         return $this->resellerServices->post('domain/getPrice', [
+            'company' => $company,
             'tld' => $tld
         ]);
     }
