@@ -31,8 +31,9 @@ returns:
 ### update
 ```php
 $domainName = 'reseller-services.de';
+$records = [];
 
-$client->domain()->dns()->update($domainName);
+$client->domain()->dns()->update($domainName, $records);
 ```
 returns:
 ```json
