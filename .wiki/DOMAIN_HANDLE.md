@@ -1,6 +1,7 @@
 ## Navigation
 * [get](#get)
 * [create](#create)
+* [update](#update)
 * [delete](#delete)
 
 Initiate the client:
