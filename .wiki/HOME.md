@@ -1,13 +1,6 @@
-#Home
-Initiate the client:
-```php
-<?php
-// Require the autoloader
-require_once 'vendor/autoload.php';
+## Welcome to the Reseller-Services PHP-API Wiki
+![Reseller-Services Banner](https://cdn.bastianleicht.de/etc/reseller-services/banner.png)
 
-// Use the library namespace
-use ResellerServices\ResellerServices;
-
-// Then simply pass your API-Token when creating the API client object.
-$client = new ResellerServices('API-Token');
-```
+This Client allows **you** to communicate easily with the Reseller-Services API.
+This Wiki is the Documentation on how to use the Client. It is split in the different main categories with smaller 
+subcategories, that includes more specific Information.
