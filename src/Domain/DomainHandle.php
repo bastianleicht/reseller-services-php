@@ -69,11 +69,6 @@ class DomainHandle
         ]);
     }
 
-    public function update()
-    {
-        throw new AssertNotImplemented();
-    }
-
     /**
      * @param string $handle_id     BJSC65
      * @return array|string
