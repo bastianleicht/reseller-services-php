@@ -110,9 +110,6 @@ class Domain
      */
     public function getAuthcode(string $domainName)
     {
-        if($this->resellerServices->isSandbox() === true) {
-            throw new AssertNotImplemented();
-        }
         return $this->resellerServices->post('domain/getAuthcode', [
             'domainName' => $domainName
         ]);
@@ -206,9 +203,6 @@ class Domain
     public function update(string $domainName, string $ownerContact, string $adminContact, string $technicianContact,
                            string $zoneContact, string $ns1, string $ns2, string $ns3, string $ns4, string $ns5)
     {
-        if($this->resellerServices->isSandbox() === true) {
-            throw new AssertNotImplemented();
-        }
         return $this->resellerServices->post('domain/update', [
             'domainName' => $domainName,
             'ownerC' => $ownerContact,
@@ -224,13 +218,12 @@ class Domain
     }
 
     /**
-     * @param $domainName
+     * @param string $domainName test.de
      * @return array|string
      * @throws GuzzleException
      */
-    public function restore($domainName)
+    public function restore(string $domainName)
     {
-        throw new AssertNotImplemented();
         return $this->resellerServices->post('domain/restore', [
             'domainName' => $domainName,
         ]);
