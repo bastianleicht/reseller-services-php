@@ -218,7 +218,7 @@ class Domain
     }
 
     /**
-     * @param string $domainName domain.de
+     * @param string $domainName test.de
      * @return array|string
      * @throws GuzzleException
      */

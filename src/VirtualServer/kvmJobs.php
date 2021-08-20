@@ -27,9 +27,6 @@ class kvmJobs
      */
     public function get(string $job_id)
     {
-        if($this->resellerServices->isSandbox() === true) {
-            throw new AssertNotImplemented();
-        }
         return $this->resellerServices->post('rootserver/job/get', [
             'job_id' => $job_id
         ]);
