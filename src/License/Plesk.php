@@ -20,16 +20,16 @@ class Plesk
         $this->resellerServices = $resellerServices;
     }
 
-    public function getPrices()
+    /**
+     * @param bool $company
+     * @return array|string
+     * @throws GuzzleException
+     */
+    public function getPricelist(bool $company = false)
     {
-        //TODO: Hat Björn noch nicht hinzugefügt.
-        throw new AssertNotImplemented();
-    }
-
-    public function getLicense()
-    {
-        //TODO: Hat Björn noch nicht hinzugefügt.
-        throw new AssertNotImplemented();
+        return $this->resellerServices->post('license/getPricelist', [
+            'company' => $company,
+        ]);
     }
 
     /**
