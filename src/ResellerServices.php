@@ -51,6 +51,7 @@ class ResellerServices
             'allow_redirects' => false,
             'follow_redirects' => false,
             'timeout' => 120,
+            'http_errors' => false,
         ]);
     }
 
